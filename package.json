@@ -1,0 +1,19 @@
+{
+  "name": "week5-salary-calc",
+  "version": "1.0.0",
+  "description": "Calculates Salary Expenditures",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hisaac/PRIME_salary-calc.git"
+  },
+  "author": "Isaac Halvorson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hisaac/PRIME_salary-calc/issues"
+  },
+  "homepage": "https://github.com/hisaac/PRIME_salary-calc#readme"
+}
