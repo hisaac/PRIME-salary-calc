@@ -3,12 +3,15 @@ var app = angular.module('salaryCalc', ['ngRoute']);
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
     .when('/home', {
-      templateUrl: '/views/templates/home.html',
+      templateUrl: '/views/templates/table.html',
       controller: 'HomeController',
       controllerAs: 'home'
-    }.otherwise({
-      redirectTo: 'home'
-    });
+    }).otherwise({ redirectTo: 'home' });
+}]);
+
+app.controller('TableController', ['$http', function() {
+  var self = this;
+
 }]);
 
 // Home controller
