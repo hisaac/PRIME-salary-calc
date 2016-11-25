@@ -2,24 +2,25 @@ var app = angular.module('salaryCalc', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-    .when('/home', {
+    .when('/table', {
       templateUrl: '/views/templates/table.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
-    }).otherwise({ redirectTo: 'home' });
+      controller: 'TableController',
+      controllerAs: 'table'
+    }).otherwise({ redirectTo: 'table' });
 }]);
 
-app.controller('TableController', ['$http', function() {
+app.controller('TableController', ['$http', function($http) {
   var self = this;
-
+  self.headers = [];
+  $http.get('/db')
+    .then(function (res) {
+      self.data = res.data;
+    }).then(function(){
+      for (var key in self.data[0]) {
+        self.headers.push(key);
+      }
+    });
 }]);
-
-// Home controller
-app.controller('HomeController', function() {
-  console.log('home controller running');
-  var self = this;
-  self.message = "Home controller is the bestest!";
-});
 
 // // Warehouse controller
 // app.controller('WarehouseController', ["$http", function($http) {
