@@ -16,7 +16,7 @@
       <td>{{ item.employee_id }}</td>
       <td>{{ item.job_title }}</td>
       <td>{{ item.salary }}</td>
-      <td><button class="btn btn-danger btn-sm">Delete</button></td>
+      <td><button class="btn btn-danger btn-sm" ng-click="table.deleteEmployee(this)">Delete</button></td>
     </tr>
     <tr id="tableBottom">
       <td></td>

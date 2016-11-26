@@ -33,7 +33,7 @@ app.controller('TableController', ['$http', function ($http) {
     $http.post('/db', formInfo).then(getEmployeeInfo);
   };
 
-  // self.deleteEmployee = function(employeeToDelete){
-  //   $http.delete('/db' + )
-  // };
+  self.deleteEmployee = function(employeeToDelete){
+    $http.delete('/db/' + employeeToDelete.item.employee_id).then(getEmployeeInfo);
+  };
 }]);

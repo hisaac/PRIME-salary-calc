@@ -38,8 +38,30 @@ router.post('/', function(req, res){
         [req.body.firstName, req.body.lastName, req.body.idNumber, req.body.jobTitle, req.body.salary],
         function (err, result) {
           done();
-          if  (err) {
+          if (err) {
             console.log('insert query error — post table data: ', err);
+            res.sendStatus(500);
+          } else {
+            res.sendStatus(200);
+          }
+        }
+      );
+    }
+  });
+});
+
+router.delete('/:employee_id', function(req, res){
+  pg.connect(connectionString, function (err, client, done) {
+    if (err) {
+      console.log('connection error — delete table data: ', err);
+      res.sendStatus(500);
+    } else {
+      client.query("DELETE FROM employeeinfo WHERE employee_id = $1",
+        [req.params.employee_id],
+        function (err, result) {
+          done();
+          if (err) {
+            console.log('delete query error — delete table data: ', err);
             res.sendStatus(500);
           } else {
             res.sendStatus(200);
