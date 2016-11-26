@@ -1,4 +1,4 @@
-<table class="table" ng-model="table">
+<table class="table table-striped table-hover" ng-model="table">
   <thead>
     <tr>
       <th>First Name</th>
@@ -6,6 +6,7 @@
       <th>Employee ID</th>
       <th>Job Title</th>
       <th>Salary</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
       <td>{{ item.employee_id }}</td>
       <td>{{ item.job_title }}</td>
       <td>{{ item.salary }}</td>
+      <td><button class="btn btn-danger btn-sm">Delete</button></td>
     </tr>
     <tr id="tableBottom">
       <td></td>
@@ -22,27 +24,52 @@
       <td></td>
       <td>Total Monthly Expenditures</td>
       <td>{{ table.totalMonthlyExpenditures | currency }}</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
 
-<h2>Submit New Employee</h2>
+<form id="employeeInfo" class="form-horizontal" name="employeeInfo" ng-model="table">
 
-<form id="employeeinfo">
-  <p><label for="employeeFirstName">First Name</label>
-  <input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="First Name" /></p>
+  <div class="form-group">
+    <label for="employeeFirstName" class="col-sm-2 control-label">First Name</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="employeeFirstName" name="employeeFirstName" placeholder="First Name" required ng-model="formInfo.firstName" />
+    </div>
+  </div>
 
-  <p><label for="employeeLastName">Last Name</label>
-  <input type="text" id="employeeLastName" name="employeeLastName" placeholder="Last Name" /></p>
+  <div class="form-group">
+    <label for="employeeLastName" class="col-sm-2 control-label">Last Name</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="employeeLastName" name="employeeLastName" placeholder="Last Name" required ng-model="formInfo.lastName" />
+    </div>
+  </div>
 
-  <p><label for="idNumber">ID Number</label>
-  <input type="text" id="idNumber" name="idNumber" placeholder="ID Number" /></p>
+  <div class="form-group">
+    <label for="idNumber" class="col-sm-2 control-label">ID Number</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="ID Number" required ng-model="formInfo.idNumber" />
+    </div>
+  </div>
 
-  <p><label for="jobTitle">Job Title</label>
-  <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title" /></p>
+  <div class="form-group">
+    <label for="jobTitle" class="col-sm-2 control-label">Job Title</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Job Title" required ng-model="formInfo.jobTitle" />
+    </div>
+  </div class="form-group">
 
-  <p><label for="annualSalary">Salary</label>
-  <input type="text" id="annualSalary" name="annualSalary" placeholder="Salary" /></p>
+  <div class="form-group">
+    <label for="annualSalary" class="col-sm-2 control-label">Salary</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="annualSalary" name="annualSalary" placeholder="Salary" required ng-model="formInfo.salary" />
+    </div>
+  </div>
 
-  <p><input class="btn btn-default" type="submit" value="Submit Employee" /></p>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <input class="btn btn-primary" ng-click="table.submitEmployee(formInfo)" type="submit" value="Submit New Employee" />
+    </div>
+  </div>
+
 </form>
