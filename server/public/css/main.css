@@ -1,0 +1,8 @@
+/*------------------------------ TABLE STYLING -------------------------------*/
+
+.table {
+  width: 80%;
+  margin: 50px auto;
+}
+
+tr:nth-of-type(odd){background-color: #f4f4f4}
