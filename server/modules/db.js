@@ -28,7 +28,4 @@ router.get('/', function(req, res){
   });
 });
 
-// adds new data to database
-// router.post()
-
 module.exports = router;
