@@ -21,7 +21,28 @@
       <td></td>
       <td></td>
       <td>Total Monthly Expenditures</td>
-      <td></td>
+      <td>{{ table.totalMonthlyExpenditures | currency }}</td>
     </tr>
   </tbody>
 </table>
+
+<h2>Submit New Employee</h2>
+
+<form id="employeeinfo">
+  <p><label for="employeeFirstName">First Name</label>
+  <input type="text" id="employeeFirstName" name="employeeFirstName" placeholder="First Name" /></p>
+
+  <p><label for="employeeLastName">Last Name</label>
+  <input type="text" id="employeeLastName" name="employeeLastName" placeholder="Last Name" /></p>
+
+  <p><label for="idNumber">ID Number</label>
+  <input type="text" id="idNumber" name="idNumber" placeholder="ID Number" /></p>
+
+  <p><label for="jobTitle">Job Title</label>
+  <input type="text" id="jobTitle" name="jobTitle" placeholder="Job Title" /></p>
+
+  <p><label for="annualSalary">Salary</label>
+  <input type="text" id="annualSalary" name="annualSalary" placeholder="Salary" /></p>
+
+  <p><input class="btn btn-default" type="submit" value="Submit Employee" /></p>
+</form>
