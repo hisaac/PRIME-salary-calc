@@ -42,6 +42,6 @@ app.controller('TableController', ['$http', function ($http) {
   };
 
   self.toggleEmployee = function(employeeToToggle){
-    $http.post('/db/' + employeeToToggle.item.employee_id).then(getEmployeeInfo);
+    $http.put('/db/' + employeeToToggle.item.employee_id).then(getEmployeeInfo);
   };
 }]);
