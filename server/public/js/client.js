@@ -23,7 +23,7 @@ app.controller('TableController', ['$http', function ($http) {
         for (var i = 0; i < res.data.length; i++) {
 
           //checks if employee's status is active, and only adds salary if it is
-          if (res.data[i].active === true){
+          if (res.data[i].active){
             self.totalMonthlyExpenditures += Number(res.data[i].salary.replace(/[^0-9\.]+/g,""));
           }
         }
