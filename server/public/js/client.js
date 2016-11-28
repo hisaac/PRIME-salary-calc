@@ -20,13 +20,12 @@ app.controller('TableController', ['$http', function ($http) {
         self.data = res.data;
 
         //loops through data and adds all salaries to 'totalMonthlyExpenditures'
-        for (var i = 0; i < res.data.length; i++) {
-
+        res.data.forEach(function(employee){
           //checks if employee's status is active, and only adds salary if it is
-          if (res.data[i].active){
-            self.totalMonthlyExpenditures += Number(res.data[i].salary.replace(/[^0-9\.]+/g,""));
+          if (employee.active){
+            self.totalMonthlyExpenditures += Number(employee.salary.replace(/[^0-9\.]+/g,""));
           }
-        }
+        });
 
         //calculates total monthly expenditures by dividing by 12
         self.totalMonthlyExpenditures /= 12;
