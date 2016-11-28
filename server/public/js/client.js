@@ -24,8 +24,8 @@ app.controller('TableController', ['$http', function ($http) {
           self.totalMonthlyExpenditures += Number(res.data[i].salary.replace(/[^0-9\.]+/g,""));
         }
 
-        //calculates average by dividing by total salary items
-        self.totalMonthlyExpenditures /= i;
+        //calculates total monthly expenditures by dividing by 12
+        self.totalMonthlyExpenditures /= 12;
       });
   };
 
