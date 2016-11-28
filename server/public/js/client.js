@@ -21,7 +21,9 @@ app.controller('TableController', ['$http', function ($http) {
 
         //loops through data and adds all salaries to 'totalMonthlyExpenditures'
         for (var i = 0; i < res.data.length; i++) {
-          self.totalMonthlyExpenditures += Number(res.data[i].salary.replace(/[^0-9\.]+/g,""));
+          if (res.data[i].active === true){
+            self.totalMonthlyExpenditures += Number(res.data[i].salary.replace(/[^0-9\.]+/g,""));
+          }
         }
 
         //calculates total monthly expenditures by dividing by 12
@@ -35,5 +37,10 @@ app.controller('TableController', ['$http', function ($http) {
 
   self.deleteEmployee = function(employeeToDelete){
     $http.delete('/db/' + employeeToDelete.item.employee_id).then(getEmployeeInfo);
+  };
+
+  self.toggleEmployee = function(employeeToToggle){
+    console.log('toggle employee called');
+    $http.post('/db/' + employeeToToggle.item.employee_id).then(getEmployeeInfo);
   };
 }]);

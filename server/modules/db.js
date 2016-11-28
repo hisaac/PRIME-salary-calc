@@ -72,4 +72,27 @@ router.delete('/:employee_id', function(req, res){
   });
 });
 
+router.post('/:employee_id', function(req, res){
+  console.log('toggle employee called for ', req.params.employee_id);
+  pg.connect(connectionString, function (err, client, done) {
+    if (err) {
+      console.log('connection error — update table data: ', err);
+      res.sendStatus(500);
+    } else {
+      client.query("UPDATE employeeinfo SET active = NOT active WHERE employee_id = $1;",
+        [req.params.employee_id],
+        function (err, result) {
+          done();
+          if (err) {
+            console.log('update query error — delete table data: ', err);
+            res.sendStatus(500);
+          } else {
+            res.sendStatus(200);
+          }
+        }
+      );
+    }
+  });
+});
+
 module.exports = router;

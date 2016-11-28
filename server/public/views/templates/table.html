@@ -6,6 +6,7 @@
       <th>Employee ID</th>
       <th>Job Title</th>
       <th>Salary</th>
+      <th>Employee Status</th>
       <th></th>
     </tr>
   </thead>
@@ -16,6 +17,22 @@
       <td>{{ item.employee_id }}</td>
       <td>{{ item.job_title }}</td>
       <td>{{ item.salary }}</td>
+      <td>
+        <form name="activeForm" class="employeeActiveToggle" >
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios{{ item.employee_id }}" id="optionsRadiosActive{{ item.employee_id }}" value="option1" ng-model="item.active" ng-change="table.toggleEmployee(this)" ng-value="true" />
+              Active
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios{{ item.employee_id }}" id="optionsRadiosInactive{{ item.employee_id }}" value="option2" ng-model="item.active" ng-change="table.toggleEmployee(this)" ng-value="false" />
+              Inactive
+            </label>
+          </div>
+        </form>
+      </td>
       <td><button class="btn btn-danger btn-sm" ng-click="table.deleteEmployee(this)">Delete</button></td>
     </tr>
     <tr id="tableBottom">
@@ -24,6 +41,7 @@
       <td></td>
       <td>Total Monthly Expenditures</td>
       <td>{{ table.totalMonthlyExpenditures | currency }}</td>
+      <td></td>
       <td></td>
     </tr>
   </tbody>
