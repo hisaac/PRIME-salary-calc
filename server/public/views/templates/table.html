@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="item in table.data">
+    <tr ng-repeat="item in table.data" class="{{ item.active }}Active">
       <td>{{ item.first_name }}</td>
       <td>{{ item.last_name }}</td>
       <td>{{ item.employee_id }}</td>
