@@ -21,6 +21,8 @@ app.controller('TableController', ['$http', function ($http) {
 
         //loops through data and adds all salaries to 'totalMonthlyExpenditures'
         for (var i = 0; i < res.data.length; i++) {
+
+          //checks if employee's status is active, and only adds salary if it is
           if (res.data[i].active === true){
             self.totalMonthlyExpenditures += Number(res.data[i].salary.replace(/[^0-9\.]+/g,""));
           }
@@ -40,7 +42,6 @@ app.controller('TableController', ['$http', function ($http) {
   };
 
   self.toggleEmployee = function(employeeToToggle){
-    console.log('toggle employee called');
     $http.post('/db/' + employeeToToggle.item.employee_id).then(getEmployeeInfo);
   };
 }]);

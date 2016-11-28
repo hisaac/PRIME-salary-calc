@@ -73,7 +73,6 @@ router.delete('/:employee_id', function(req, res){
 });
 
 router.post('/:employee_id', function(req, res){
-  console.log('toggle employee called for ', req.params.employee_id);
   pg.connect(connectionString, function (err, client, done) {
     if (err) {
       console.log('connection error — update table data: ', err);
